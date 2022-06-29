@@ -1,0 +1,70 @@
+{
+  "name": "TestAppUser",
+  "plural": "TestAppUsers",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "mysql": {
+    "schema": "user_bank_details",
+    "table": "app_user"
+  },
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "mysql": {
+          "columnName": "name",
+          "dataType": "VARCHAR",
+          "dataLength": 50
+      }
+    },
+    "email": {
+      "type": "string",
+      "mysql": {
+        "columnName": "email",
+        "dataType": "VARCHAR",
+        "dataLength": 50
+    }
+    },
+    "contactNo": {
+      "type": "number",
+      "mysql": {
+        "columnName": "contact_no",
+        "dataType": "DOUBLE"
+    }
+    },
+    "createdDate": {
+      "type": "date",
+      "mysql": {
+        "columnName": "created_date",
+        "dataType": "DATETIME"
+    }
+    },
+    "lastModifiedDate": {
+      "type": "date",
+      "mysql": {
+        "columnName": "last_modified_date",
+        "dataType": "DATETIME"
+    }
+    },
+    "isActive": {
+      "type": "boolean",
+      "mysql": {
+        "columnName": "is_active",
+        "dataType": "BOOLEAN"
+    }
+    }
+  },
+  "validations": [],
+  "relations": {
+    "bank": {
+      "type": "hasMany",
+      "model": "TestBank",
+      "foreignKey": "id",
+      "through": "TestUserBank"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

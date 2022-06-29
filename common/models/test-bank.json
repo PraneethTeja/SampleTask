@@ -1,0 +1,58 @@
+{
+  "name": "TestBank",
+  "plural": "TestBanks",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mysql": {
+    "schema": "user_bank_details",
+    "table": "banks"
+  },
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "branch": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "ifscCode": {
+      "type": "string",
+      "mysql": {
+        "columnName": "ifsc_code",
+        "dataType": "VARCHAR",
+        "dataLength": 25
+      }
+    },
+    "pincode": {
+      "type": "string",
+      "mysql": {
+        "columnName": "pin_code",
+        "dataType": "VARCHAR",
+        "dataLength": 8
+      }
+    },
+    "isActive": {
+      "type": "boolean",
+      "mysql": {
+        "columnName": "is_active",
+        "dataType": "BOOLEAN"
+      }
+    }
+  },
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "hasMany",
+      "model": "TestAppUser",
+      "foreignKey": "id",
+      "through": "TestUserBank"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

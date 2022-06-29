@@ -1,0 +1,71 @@
+{
+    "name": "TestUserBank",
+    "plural": "TestUserBanks",
+  "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+      "validateUpsert": true
+    },
+    "mysql": {
+      "schema": "user_bank_details",
+      "table": "user_bank"
+    },
+    "properties": {
+      "bankName": {
+        "type": "string",
+        "mysql": {
+          "columnName": "bank_name",
+          "dataType": "VARCHAR",
+          "dataLength": 50
+        }
+      },
+      "branch": {
+        "type": "string"
+      },
+      "accountNumber": {
+        "type": "string",
+        "mysql": {
+          "columnName": "account_number",
+          "dataType": "VARCHAR",
+          "dataLength": 50
+      }
+      },
+      "isActive": {
+        "type": "boolean",
+        "mysql": {
+          "columnName": "is_active",
+          "dataType": "BOOLEAN"
+      }
+      }
+    },
+    "validations": [],
+    "relations": {
+        "user": {
+            "type": "belongsTo",
+            "model": "TestAppUser",
+            "foreignKey": "fk_id_user"
+          },
+          "bank": {
+            "type": "belongsTo",
+            "model": "TestBank",
+            "foreignKey": "fk_id_bank" 
+          }
+    },
+    "foreignKeys": {
+      "user_bank_fk_user_id": {
+        "name": "user_bank_fk_user_id",
+        "foreignKey": "fk_id_user",
+        "entityKey": "id",
+        "entity": "TestAppUser"
+      },
+      "user_bank_fk_bank_id": {
+        "name": "user_bank_fk_bank_id",
+        "foreignKey": "fk_id_bank",
+        "entityKey": "id",
+        "entity": "TestBank"
+    }
+  },
+    "acls": [],
+    "methods": {}
+  }
+  

@@ -1,0 +1,17 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "mysqlD1s": {
+    "host": "localhost",
+    "port": 3306,
+    "url": "",
+    "database": "user_bank_details",
+    "password": "root",
+    "name": "mysqlD1s",
+    "user": "root",
+    "connector": "mysql", 
+    "debug": true
+  }
+}
